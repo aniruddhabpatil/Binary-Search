@@ -1,0 +1,33 @@
+// https://practice.geeksforgeeks.org/problems/find-first-and-last-occurrence-of-x0849/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+pair<long,long> indexes(vector<long long> arr, long long x)
+    {
+        // code here
+        pair<long,long> ans;
+        ans.first=-1;
+        ans.second=-1;
+        long long i=0,j=arr.size()-1,mid;
+        while(i<=j)
+        {
+            mid=i+(j-i)/2;
+            if(arr[mid]==x)
+                ans.first=mid;
+            if(x<=arr[mid])
+                j=mid-1;
+            else
+                i=mid+1;
+        }
+        i=0;
+        j=arr.size()-1;
+        while(i<=j)
+        {
+            mid=i+(j-i)/2;
+            if(arr[mid]==x)
+                ans.second=mid;
+            if(x>=arr[mid])
+                i=mid+1;
+            else
+                j=mid-1;
+        }
+        return ans;
+    }
