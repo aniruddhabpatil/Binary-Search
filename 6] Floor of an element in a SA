@@ -1,0 +1,22 @@
+// https://practice.geeksforgeeks.org/problems/floor-in-a-sorted-array-1587115620/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+int findFloor(vector<long long> v, long long n, long long x){
+        
+        // Your code here
+        int ans=-1;
+        long long i=0,j=n-1;
+        while(i<=j)
+        {
+            long long mid = i+(j-i)/2;
+            if(v[mid]==x)
+                return mid;
+            if(x<v[mid])
+                j=mid-1;
+            else
+            {
+                i=mid+1;
+                ans=mid;
+            }
+        }
+        return ans;
+    }
