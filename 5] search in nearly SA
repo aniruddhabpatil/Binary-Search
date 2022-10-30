@@ -1,0 +1,37 @@
+// No link
+
+int BSonNearlySA( int arr[] , int n , int key)
+{
+	int i=0,j=n-1;
+	while(i<=j)
+	{
+		int mid=i+(j-i)/2;
+		if(arr[mid]==key)
+			return mid;
+		if(mid-1>=i && arr[mid-1]==key)
+			return mid-1;
+		if(mid+1<=j && arr[mid+1]==key)
+			return mid-1;
+		
+		if(key<arr[mid-1])
+			j=mid-2;
+		else
+			i=mid+2;
+	}
+	return -1;
+}
+
+
+int main() 
+{
+	// your code goes here
+	int n,i;
+	cin>>n;
+	int arr[n];
+	for(i=0;i<n;i++)
+		cin>>arr[i];
+	int key;
+	cin>>key;
+	cout<<BSonNearlySA(arr,n,key);
+	return 0;
+}
